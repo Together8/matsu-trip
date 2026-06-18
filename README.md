@@ -1,18 +1,18 @@
-# 馬祖南竿・北竿 3天2夜行程網頁
+# Matsu Trip V2.0
 
-這是一個可直接上傳到 GitHub Pages 的靜態網頁。
+馬祖南竿・北竿 3天2夜旅遊網站，支援 GitHub Pages。
 
-## 使用方式
+## 功能
+- 多頁式行程
+- Google Maps 一鍵導航
+- 船班/訂票/航班資訊集中
+- 花費計算，資料儲存在手機瀏覽器
+- 打卡清單與完成度
+- 響應式設計，手機像 App
+- PWA 離線快取
 
-1. 建立 GitHub Repository
-2. 上傳以下檔案：
-   - `index.html`
-   - `style.css`
-3. 到 Repository 的 Settings → Pages
-4. Source 選擇 `main` branch
-5. 儲存後等待 GitHub 產生網址
-
-## 檔案說明
-
-- `index.html`：行程內容
-- `style.css`：網頁樣式
+## 部署
+1. 建立 GitHub repository
+2. 上傳所有檔案
+3. Settings → Pages → Deploy from branch → main / root
+4. 等待網址產生

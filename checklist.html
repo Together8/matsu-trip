@@ -1,0 +1,21 @@
+<!doctype html><html lang="zh-Hant"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>打卡清單</title><link rel="manifest" href="manifest.json"><link rel="stylesheet" href="css/style.css">
+<meta name="theme-color" content="#2f6f73"></head><body>
+<script src="js/app.js"></script><script>renderShell('checklist.html');</script>
+<main class="container"><h1 style="color:var(--main)">📸 景點打卡清單</h1>
+<section class="card"><p>完成度</p><div class="progress"><span id="bar"></span></div><p id="pct">0%</p></section>
+<section id="checks"></section></main>
+<script>
+window.renderChecklist=function(){
+ const data=JSON.parse(localStorage.getItem('matsu-checks')||'{}');
+ const all=DATA.places.filter(p=>['景點','美食','住宿','交通'].includes(p.type));
+ const done=all.filter(p=>data[p.id]).length;
+ document.getElementById('bar').style.width=(all.length?done/all.length*100:0)+'%';
+ document.getElementById('pct').textContent=`${done}/${all.length} 完成`;
+ document.getElementById('checks').innerHTML=all.map(p=>`<label class="check-item"><input type="checkbox" ${data[p.id]?'checked':''} onchange="toggleCheck('${p.id}','${p.name}')"><span>${p.name}<br><small>${p.area}｜${p.type}</small></span></label>`).join('');
+}
+loadData().then(renderChecklist);
+</script>
+
+</body></html>
